@@ -1,7 +1,7 @@
 class Admin::SubjectsController < AdminController
 
   def index
-    render json: Subject.all
+    render json: Subject.all.to_json
   end
 
   def new
