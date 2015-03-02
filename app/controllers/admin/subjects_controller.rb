@@ -4,7 +4,8 @@ class Admin::SubjectsController < AdminController
     @subjects = Subject.all
     subjects = @subjects.to_json
     respond_to do |format|
-    format.json {render :json => subjects, :callback => params[:callback]}
+      format.json {render :json => subjects, :callback => params[:callback]}
+    end
   end
 
   def new
