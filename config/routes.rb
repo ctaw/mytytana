@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard
     resources :subjects
+    resources :newsfeeds
   end
 
   namespace :api do

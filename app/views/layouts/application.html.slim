@@ -15,5 +15,6 @@ html
     =render 'partials/navbar'
     .container
       .page-header
-        = render 'partials/breadcrumbs'
+        - if user_signed_in?
+          = render 'partials/breadcrumbs'
         = yield

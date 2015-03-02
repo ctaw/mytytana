@@ -1,0 +1,24 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/newsfeeds/new" Add News
+      h3 Newsfeeds
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Title
+          th Department
+          th Date
+          th
+      tbody
+        - @newsfeeds.each do |newsfeed|
+          tr
+            td = newsfeed.id
+            td = newsfeed.title
+            td = newsfeed.department
+            td = format_date(newsfeed.event_date)           
+            td

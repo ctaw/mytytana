@@ -1,0 +1,29 @@
+= form_for [:admin, @newsfeed] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Title
+        = f.text_field :title, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Department
+        = f.text_field :department, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Date
+        = f.text_field :event_date, :class=>"form-control input-sm date "
+  .row
+    .col-md-5
+      .form-group
+        label Description
+        = f.text_area :description, :class=>"form-control input-sm required"
+    .col-md-4
+      label Path Image
+      = f.text_field :path_name, :class=>"form-control input-sm"
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+

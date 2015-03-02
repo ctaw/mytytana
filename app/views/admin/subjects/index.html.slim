@@ -15,9 +15,10 @@ br
           th Description
           th
       tbody
-        tr
-          td 1
-          td Column content
-          td Column content
-          td Column content
-          td
+        - @subjects.each do |subject|
+          tr
+            td = subject.id
+            td = subject.subject_code
+            td = subject.name
+            td = subject.description
+            td

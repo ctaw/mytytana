@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301162352) do
+ActiveRecord::Schema.define(version: 20150302144936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "newsfeeds", force: true do |t|
+    t.string   "title"
+    t.string   "department"
+    t.datetime "event_date"
+    t.text     "description"
+    t.text     "path_name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subjects", force: true do |t|
     t.string   "subject_code"
