@@ -14,4 +14,8 @@ Rails.application.routes.draw do
     resources :subjects
   end
 
+  namespace :api do
+    resources :subjects, :defaults => { :format => 'xml' }
+  end
+
 end

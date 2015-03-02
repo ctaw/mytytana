@@ -1,11 +1,7 @@
 class Admin::SubjectsController < AdminController
 
   def index
-    @subjects = Subject.all
-    subjects = @subjects.to_json
-    respond_to do |format|
-      format.json {render :json => subjects, :callback => params[:callback]}
-    end
+    @subjects = Subject.select("id, subject_code, name, description").order("id ASC")
   end
 
   def new
