@@ -1,0 +1,19 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand href="/"  MyTytana
+      button.navbar-toggle data-target="#navbar-main" data-toggle="collapse" type="button" 
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          a href="" target="_blank"  Contact Us
+        li
+          - if user_signed_in?
+            a href="/logout" data-method="delete" rel="nofollow" Log out
+          - else
+            a href="/users/login" Log in
+            
+
