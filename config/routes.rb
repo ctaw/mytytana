@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :subjects, :defaults => { :format => 'xml' }
+    resources :newsfeeds, :defaults => { :format => 'xml' }
   end
 
 end
