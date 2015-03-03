@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    .header
+      h3 Student
+br
+.row
+  .col-lg-12
+    table.table.table-condensed
+      tr
+        th Student Number
+        td = @student.student_number
+        th Access Code
+        td = @student.access_code
+        th Course
+        td = @student.course_code
+        th Curriculum Yr
+        td = @student.curriculum_year
+      tr
+       
+      
+    
+  .row
+    .col-lg-12
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/newsfeeds" Back
+        a.btn.btn-primary.btn-sm href="/admin/newsfeeds/#{params[:id]}/edit" Edit

@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302144936) do
+ActiveRecord::Schema.define(version: 20150303164103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: true do |t|
+    t.string   "course_code"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "directories", force: true do |t|
+    t.string "office"
+    t.string "local_numbers"
+  end
+
+  create_table "events", force: true do |t|
+    t.string "month"
+    t.string "day"
+    t.text   "caption"
+  end
 
   create_table "newsfeeds", force: true do |t|
     t.string   "title"
@@ -26,6 +45,55 @@ ActiveRecord::Schema.define(version: 20150302144936) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schedules", force: true do |t|
+    t.integer "student_number"
+    t.integer "day"
+    t.string  "time"
+    t.string  "subject_code"
+    t.string  "section"
+    t.string  "room"
+  end
+
+  create_table "sections", force: true do |t|
+    t.string   "course_code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", force: true do |t|
+    t.integer  "student_number"
+    t.string   "access_code"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "extension_name"
+    t.string   "course_code"
+    t.string   "curriculum_year"
+    t.integer  "enrollment_status"
+    t.integer  "gender"
+    t.datetime "birthday"
+    t.string   "birthplace"
+    t.string   "civil_status"
+    t.string   "nationality"
+    t.string   "religion"
+    t.text     "address"
+    t.string   "city"
+    t.string   "contact_number"
+    t.string   "email"
+    t.string   "guardian_name"
+    t.string   "guardian_address"
+    t.string   "guardian_contact_number"
+    t.string   "gs_name"
+    t.text     "gs_location"
+    t.string   "gs_year"
+    t.string   "hs_name"
+    t.text     "hs_location"
+    t.string   "hs_year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

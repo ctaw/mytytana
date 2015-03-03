@@ -13,11 +13,14 @@ Rails.application.routes.draw do
     resources :dashboard
     resources :subjects
     resources :newsfeeds
+    resources :students
+    resources :courses
   end
 
   namespace :api do
     resources :subjects, :defaults => { :format => 'xml' }
     resources :newsfeeds, :defaults => { :format => 'xml' }
+    resources :students, :defaults => { :format => 'xml' }
   end
 
 end

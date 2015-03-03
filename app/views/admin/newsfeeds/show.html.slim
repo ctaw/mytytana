@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    .header
+      h3 News
+br
+.row
+  .col-lg-12
+    .col-lg-6
+      label Title:
+      .span3 = @newsfeed.title
+    .col-lg-6
+      label Department:
+      .span3 = @newsfeed.department
+br
+  .row
+    .col-lg-12
+      .col-lg-9
+        label Caption:
+        .span3 = @newsfeed.description
+br
+  .row
+    .col-lg-12
+      .col-lg-9
+        .btn-group.pull-right
+          a.btn.btn-default.btn-sm href="/admin/newsfeeds" Back
+          a.btn.btn-primary.btn-sm href="/admin/newsfeeds/#{params[:id]}/edit" Edit

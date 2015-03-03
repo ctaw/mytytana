@@ -16,7 +16,7 @@
     .col-md-5
       .form-group
         label Description
-        = f.text_area :description, :class=>"form-control input-sm required"
+        = f.text_area :description, :class=>"form-control input-sm required", :rows=>"10"
     .col-md-4
       label Path Image
       = f.text_field :path_name, :class=>"form-control input-sm"
@@ -24,6 +24,7 @@
     .col-md-12
       hr
       .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/newsfeeds" Back
         = f.submit "Save", :class => "btn btn-success btn-sm"
         
 

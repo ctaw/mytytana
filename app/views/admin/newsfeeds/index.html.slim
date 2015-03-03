@@ -11,14 +11,16 @@ br
         tr
           th #
           th Title
-          th Department
           th Date
-          th
+          th 
       tbody
         - @newsfeeds.each do |newsfeed|
           tr
             td = newsfeed.id
             td = newsfeed.title
-            td = newsfeed.department
             td = format_date(newsfeed.event_date)           
             td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/newsfeeds/#{newsfeed.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/newsfeeds/#{newsfeed.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/newsfeeds/#{newsfeed.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete

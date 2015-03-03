@@ -1,0 +1,129 @@
+= form_for [:admin, @student] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Student Number
+        = f.text_field :student_number, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Access Code
+        = f.text_field :access_code, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label Course
+        =f.select(:course_code, options_for_select(@courses,f.object.course_code),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label Curriculum_year
+        = f.text_field :curriculum_year, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Enrollment Status
+        =f.select(:enrollment_status, options_for_select(@enrollment_status,f.object.enrollment_status),{},:class=>"form-control input-sm")
+  .row
+    .col-md-3
+      .form-group
+        label First Name
+        = f.text_field :first_name, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Middle Name
+        = f.text_field :middle_name, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Last Name
+        = f.text_field :last_name, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Extension Name
+        = f.text_field :extension_name, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label Gender
+        =f.select(:gender, options_for_select(@gender,f.object.gender),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label Birthday
+        = f.text_field :birthday, :class=>"form-control input-sm date"
+    .col-md-3
+      .form-group
+        label Birthplace
+        = f.text_field :birthplace, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Civil Status
+        =f.select(:civil_status, options_for_select(@civil_status,f.object.civil_status),{},:class=>"form-control input-sm")
+  .row
+    .col-md-3
+      .form-group
+        label Nationality
+        = f.text_field :nationality, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Religion
+        = f.text_field :religion, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Contact Number
+        = f.text_field :contact_number, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Email
+        = f.text_field :email, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label City
+        = f.text_field :city, :class=>"form-control input-sm"
+    .col-md-9
+      .form-group
+        label Addess
+        = f.text_area :address, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label Guardian's Name
+        = f.text_field :guardian_name, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Gurdian's Contact Number
+        = f.text_field :guardian_contact_number, :class=>"form-control input-sm"
+    .col-md-6
+      .form-group
+        label Guradian's Address
+        = f.text_field :city, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label Grade School
+        = f.text_field :gs_name, :class=>"form-control input-sm"
+    .col-md-6
+      .form-group
+        label Grade School Location
+        = f.text_area :gs_location, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Year
+        = f.text_field :gs_year, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label High School
+        = f.text_field :hs_name, :class=>"form-control input-sm"
+    .col-md-6
+      .form-group
+        label High School Location
+        = f.text_area :hs_location, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Year
+        = f.text_field :hs_year, :class=>"form-control input-sm"
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/newsfeeds" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
