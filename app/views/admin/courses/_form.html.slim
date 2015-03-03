@@ -1,0 +1,23 @@
+= form_for [:admin, @course] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Code
+        = f.text_field :course_code, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Name
+        = f.text_field :name, :class=>"form-control input-sm"
+  .row
+    .col-md-5
+      .form-group
+        label Description
+        = f.text_area :description, :class=>"form-control input-sm required", :rows=>"10"
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/courses" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+

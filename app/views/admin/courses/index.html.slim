@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/courses/new" Add Course
+      h3 Courses
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Code
+          th Name
+          th 
+      tbody
+        - @courses.each do |course|
+          tr
+            td = course.id
+            td = course.course_code
+            td = course.name      
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/courses/#{course.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/courses/#{course.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/courses/#{course.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
