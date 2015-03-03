@@ -10,7 +10,7 @@ class AddStudents < ActiveRecord::Migration
       t.string :extension_name
       t.string :course_code
       t.string :curriculum_year
-      t.integer :enrollment_status
+      t.string :enrollment_status
       t.integer :gender
       t.datetime :birthday
       t.string :birthplace
