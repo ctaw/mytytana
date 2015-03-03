@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :subjects, :defaults => { :format => 'xml' }
     resources :newsfeeds, :defaults => { :format => 'xml' }
     resources :students, :defaults => { :format => 'xml' }
+    resources :sessions, :defaults => { :format => 'xml' }
   end
 
 end
