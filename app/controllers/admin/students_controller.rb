@@ -50,7 +50,7 @@ class Admin::StudentsController < AdminController
     @gender = [['Male','1'],['Female','0']]
     @enrollment_status = [['Regular','Regular'],['Irregular','Irregular']]
     @civil_status = [['Single','Single'],['Married','Married'],['Widowed', 'Widowed'],['Divorce','Divorce']]
-    @courses = Course.select("course_code, name").order("name ASC")
+    @courses = Course.select("course_code,name").order("name")
   end
 
   def student_params
