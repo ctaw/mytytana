@@ -1,0 +1,24 @@
+= form_for [:admin, @warning] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Title
+        = f.text_field :title, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Category
+        =f.select(:category, options_for_select(@categories,f.object.category),{},:class=>"form-control input-sm")
+  .row
+    .col-md-5
+      .form-group
+        label Caption
+        = f.text_area :caption, :class=>"form-control input-sm required", :rows=>"10"
+   
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/newsfeeds" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+

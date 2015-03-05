@@ -1,0 +1,23 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/warnings/new" Add Deficiency and Warning
+      h3 Deficiency and Warnings
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Title
+          th 
+      tbody
+        - @warnings.each do |warning|
+          tr
+            td = warning.id
+            td = warning.title      
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/warnings/#{warning.id}/edit" Edit
+                a.btn.btn-danger.btn-xs href="/admin/warnings/#{warning.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
