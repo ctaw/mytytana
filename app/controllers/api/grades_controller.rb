@@ -6,7 +6,7 @@ class Api::EventsController < ApplicationController
   end
   
   def show
-    respond_with(@grades = Grade.where("student_number =?", params[:id]).order("last_name ASC")) 
+    respond_with(@grades = Grade.where("student_number =?", params[:id])) 
   end
-  
+
 end
