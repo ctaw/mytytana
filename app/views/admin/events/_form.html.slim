@@ -1,0 +1,23 @@
+= form_for [:admin, @event] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Month
+        =f.select(:month, options_for_select(@months,f.object.month),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label Day
+        = f.text_field :day, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
+        label Caption
+        = f.text_area :caption, :class=>"form-control input-sm", :row=>"10"
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/directories" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+

@@ -1,0 +1,28 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/events/new" Add Event
+      h3 Academic Calender
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Month
+          th Day
+          th Caption
+          th 
+      tbody
+        - @events.each do |event|
+          tr
+            td = event.id
+            td = event.month
+            td = event.day
+            td = event.caption       
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/events/#{event.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/events/#{event.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/events/#{event.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
