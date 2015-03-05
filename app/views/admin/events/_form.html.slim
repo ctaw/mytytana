@@ -2,6 +2,15 @@
   .row
     .col-md-3
       .form-group
+        label Semester
+        =f.select(:sem, options_for_select(@sems,f.object.sem),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label Year
+        = f.text_field :year, :class=>"form-control input-sm"
+  .row
+    .col-md-3
+      .form-group
         label Month
         / =f.select(:month, options_for_select(@months,f.object.month),{},:class=>"form-control input-sm")
         = f.text_field :month, :class=>"form-control input-sm"

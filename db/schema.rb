@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303164103) do
+ActiveRecord::Schema.define(version: 20150305142903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 20150303164103) do
   end
 
   create_table "events", force: true do |t|
-    t.string "month"
-    t.string "day"
-    t.text   "caption"
+    t.string  "month"
+    t.string  "day"
+    t.text    "caption"
+    t.integer "year"
+    t.integer "sem"
   end
 
   create_table "newsfeeds", force: true do |t|

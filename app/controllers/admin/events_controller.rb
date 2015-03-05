@@ -47,11 +47,12 @@ class Admin::EventsController < AdminController
   end
 
   def look_ups
+    @sems = [['1st Semester','0'],['2nd Semester','1']]
     @months = [['January','January'],['February','February'],['March','March'],['April','April'],['May','May'],['June','June'],['July','July'],['August','August'],['September','September'],['November','November'],['December','December']]
   end
 
   def event_params
-    params.require(:event).permit(:month, :day, :caption)    
+    params.require(:event).permit(:month, :day, :caption, :year, :sem)    
   end
   
 end
