@@ -1,4 +1,4 @@
-class Api::EventsController < ApplicationController
+class Api::GradesController < ApplicationController
   respond_to :xml, :json
 
   def index 
