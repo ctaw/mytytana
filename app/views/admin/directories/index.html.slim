@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/directories/new" Add Directory
+      h3 Directories
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Office
+          th Local Numbers
+          th 
+      tbody
+        - @directories.each do |directory|
+          tr
+            td = directory.id
+            td = directory.office
+            td = directory.local_numbers       
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/directories/#{directory.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/directories/#{directory.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/directories/#{directory.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :newsfeeds
     resources :students
     resources :courses
+    resources :directories
   end
 
   namespace :api do
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     resources :newsfeeds, :defaults => { :format => 'xml' }
     resources :students, :defaults => { :format => 'xml' }
     resources :sessions, :defaults => { :format => 'xml' }
+    resources :directories, :defaults => { :format => 'xml' }
   end
 
 end

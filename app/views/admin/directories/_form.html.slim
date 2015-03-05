@@ -1,0 +1,18 @@
+= form_for [:admin, @directory] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Office
+        = f.text_field :office, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Local Number
+        = f.text_field :local_numbers, :class=>"form-control input-sm"
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/directories" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+
