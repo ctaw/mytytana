@@ -4,7 +4,7 @@ class Admin::SubjectsController < AdminController
   before_action :set_subjec_id, :only=> [:show, :edit, :update, :destroy]
 
   def index
-    @subjects = Subject.select("id, subject_code, name, description").order("id ASC")
+    @subjects = Subject.select("id, subject_code, name, description, course_code").order("id ASC")
   end
 
   def new
