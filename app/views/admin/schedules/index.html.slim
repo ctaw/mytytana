@@ -1,0 +1,48 @@
+.row
+  .col-lg-12
+    .header
+      h3 Schedule
+br
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        | Add Student's Schedules
+        br
+        br
+        .col-lg-8
+          = select_tag "course_id", options_from_collection_for_select(@courses, "course_code", "name"), { :class => 'form-control input-sm', :prompt => "Select Course"}
+          br
+          a.btn.btn-primary.btn-sm.pull-right.addSchedule href="#" Add Schedule
+
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Section
+          th Subject
+          th Room
+          / th 
+      tbody
+        - @schedules.each do |schedule|
+          tr
+            td = schedule.id
+            td = schedule.section
+            td = schedule.subject_code
+            td = schedule.room       
+            / td
+            /   .btn-group.pull-right
+            /     a.btn.btn-default.btn-xs href="/admin/schedules/#{schedule.id}/edit" Edit
+            /     a.btn.btn-info.btn-xs href="/admin/schedules/#{schedule.id}" Show
+            /     a.btn.btn-danger.btn-xs href="/admin/schedules/#{schedule.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
+
+javascript:
+  $(".addSchedule").click(function(){
+    
+    var selectedCourse = $( "#course_id option:selected" ).val();
+
+    window.location.href = "/admin/schedules/new?course_code="+ selectedCourse +"";
+
+  })

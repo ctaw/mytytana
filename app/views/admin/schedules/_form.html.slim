@@ -1,0 +1,36 @@
+= form_for [:admin, @schedule] do |f|
+  .row
+    .col-md-4
+      .form-group
+        label Student
+        =f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
+    .col-md-4
+      .form-group
+        label Section
+        =f.select "section", options_from_collection_for_select(@sections, "name","name", f.object.section), {:prompt => 'Select Section'}, { :class => 'form-control input-sm' }
+    .col-md-4
+      .form-group
+        label Day
+        =f.select(:day, options_for_select(@days,f.object.day),{},:class=>"form-control input-sm")
+  .row
+    .col-md-4
+      .form-group
+        label Subject
+        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","name", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
+    .col-md-4
+      .form-group
+        label Time
+        = f.text_field :time, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Room
+        = f.text_field :room, :class=>"form-control input-sm"
+
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/schedules" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+

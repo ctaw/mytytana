@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :courses
     resources :directories
     resources :events
+    resources :sections
+    resources :schedules
   end
 
   namespace :api do
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
     resources :sessions, :defaults => { :format => 'xml' }
     resources :directories, :defaults => { :format => 'xml' }
     resources :events, :defaults => { :format => 'xml' }
+    resources :schedules, :defaults => { :format => 'xml' }
   end
 
 end

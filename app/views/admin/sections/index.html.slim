@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/sections/new" Add Directory
+      h3 Sections
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Course
+          th Name
+          th 
+      tbody
+        - @sections.each do |section|
+          tr
+            td = section.id
+            td = section.course_code
+            td = section.name       
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/sections/#{section.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/sections/#{section.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/sections/#{section.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete

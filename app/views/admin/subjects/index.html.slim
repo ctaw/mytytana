@@ -22,3 +22,7 @@ br
             td = subject.name
             td = subject.description
             td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/subjects/#{subject.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/subjects/#{subject.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/subjects/#{subject.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
