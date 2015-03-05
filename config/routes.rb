@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :events
     resources :sections
     resources :schedules
+    resources :grades
   end
 
   namespace :api do
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
     resources :directories, :defaults => { :format => 'xml' }
     resources :events, :defaults => { :format => 'xml' }
     resources :schedules, :defaults => { :format => 'xml' }
+    resources :grades, :defaults => { :format => 'xml' }
   end
 
 end

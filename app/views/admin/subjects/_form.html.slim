@@ -12,12 +12,19 @@
       .form-group
         label Name
         = f.text_field :name, :class=>"form-control input-sm required"
+  .row
     .col-md-3
       .form-group
         label Description
         = f.text_area :description, :class=>"form-control input-sm required"
-    .
-
+    .col-md-3
+      .form-group
+        label Unit Lecture
+        = f.text_field :unit_lec, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Unit Laboratory
+        = f.text_field :unit_lab, :class=>"form-control input-sm"
   .row 
     .col-md-12
       hr

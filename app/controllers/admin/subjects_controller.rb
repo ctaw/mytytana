@@ -51,7 +51,7 @@ class Admin::SubjectsController < AdminController
   end
 
   def subject_params
-    params.require(:subject).permit(:subject_code, :name, :description, :course_code)    
+    params.require(:subject).permit(:subject_code, :name, :description, :course_code, :unit_lec, :unit_lab)    
   end
 
 end

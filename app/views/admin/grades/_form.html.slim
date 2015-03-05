@@ -1,0 +1,39 @@
+= form_for [:admin, @grade] do |f|
+  .row
+    .col-md-3
+      .form-group
+        label Student
+        =f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
+    .col-md-3
+      .form-group
+        label Year
+        = f.text_field :year, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Semester
+        =f.select(:sem, options_for_select(@sems,f.object.sem),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label Subject
+        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","name", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
+  .row
+    .col-md-3
+      .form-group
+        label Prelim
+        = f.text_field :prelim, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Midterm
+        = f.text_field :midterm, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Final
+        = f.text_field :final, :class=>"form-control input-sm"
+  .row 
+    .col-md-12
+      hr
+      .btn-group.pull-right
+        a.btn.btn-default.btn-sm href="/admin/grades" Back
+        = f.submit "Save", :class => "btn btn-success btn-sm"
+        
+
