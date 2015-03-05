@@ -8,6 +8,7 @@
       .form-group
         label Year
         = f.text_field :year, :class=>"form-control input-sm"
+        = f.text_field :course_code, :class=>"form-control input-sm hidden", :value=>params[:course_code]
     .col-md-3
       .form-group
         label Semester

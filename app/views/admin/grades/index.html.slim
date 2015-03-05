@@ -34,7 +34,7 @@ br
             td = grade.sem_grade       
             td
               .btn-group.pull-right
-                / a.btn.btn-default.btn-xs href="/admin/grades/#{grade.id}/edit" Edit
+                a.btn.btn-default.btn-xs href="/admin/grades/#{grade.id}/edit?course_code=#{grade.course_code}" Edit
                 / a.btn.btn-info.btn-xs href="/admin/grades/#{grade.id}" Show
                 a.btn.btn-danger.btn-xs href="/admin/grades/#{grade.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
 

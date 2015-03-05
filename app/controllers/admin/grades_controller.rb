@@ -4,7 +4,7 @@ class Admin::GradesController < AdminController
   before_action :look_ups, :only => [:edit, :new, :update]
 
   def index
-    @grades = Grade.select("id, student_number, subject_code, sem_grade").order("id ASC")
+    @grades = Grade.select("id, student_number, subject_code, sem_grade, course_code").order("id ASC")
     @courses = Course.select("course_code,name").order("name")
   end
 
@@ -51,6 +51,7 @@ class Admin::GradesController < AdminController
   private
 
   def look_ups
+    @courses = Course.select("course_code,name").order("name")
     @sems = [['1st Semester','0'],['2nd Semester','1']]
     @students = Student.select("student_number, first_name, last_name, course_code").where("course_code =?", params[:course_code]).order("last_name ASC")
     @subjects = Subject.select("subject_code, name, course_code").where("course_code =?", params[:course_code]).order("name ASC")
@@ -61,7 +62,7 @@ class Admin::GradesController < AdminController
   end
 
   def grade_params
-    params.require(:grade).permit(:student_number, :year, :sem, :subject_code, :prelim, :midterm, :final, :sem_grade)    
+    params.require(:grade).permit(:student_number, :year, :sem, :subject_code, :prelim, :midterm, :final, :sem_grade, :course_code)    
   end
   
 end

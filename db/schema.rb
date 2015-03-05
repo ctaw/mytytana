@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305205904) do
+ActiveRecord::Schema.define(version: 20150305220126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150305205904) do
     t.string   "sem_grade"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "course_code"
   end
 
   create_table "newsfeeds", force: true do |t|
