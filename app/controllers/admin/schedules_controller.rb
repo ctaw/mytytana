@@ -22,6 +22,7 @@ class Admin::SchedulesController < AdminController
   end
 
   def show
+    @student = Student.where("course_code")
   end
 
   def edit

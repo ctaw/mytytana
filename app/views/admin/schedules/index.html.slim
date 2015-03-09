@@ -32,11 +32,11 @@ br
             td = schedule.section
             td = schedule.subject_code
             td = schedule.room       
-            / td
-            /   .btn-group.pull-right
-            /     a.btn.btn-default.btn-xs href="/admin/schedules/#{schedule.id}/edit" Edit
-            /     a.btn.btn-info.btn-xs href="/admin/schedules/#{schedule.id}" Show
-            /     a.btn.btn-danger.btn-xs href="/admin/schedules/#{schedule.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/schedules/#{schedule.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/schedules/#{schedule.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/schedules/#{schedule.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
 
 javascript:
   $(".addSchedule").click(function(){
