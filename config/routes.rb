@@ -18,8 +18,13 @@ Rails.application.routes.draw do
     resources :directories
     resources :events
     resources :sections
-    resources :schedules
-    resources :grades
+    resources :schedules do
+      collection do 
+        get "update_all"
+        get "add_more"
+      end
+    end
+    resources :grades 
     resources :warnings
   end
 

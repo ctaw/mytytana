@@ -12,6 +12,7 @@ br
         br
         .col-lg-8
           = select_tag "course_id", options_from_collection_for_select(@courses, "course_code", "course_code"), { :class => 'form-control input-sm', :prompt => "Select Course"}
+        .col-lg-8
           br
           a.btn.btn-primary.btn-sm.pull-right.addSchedule href="#" Add Grade
 .row

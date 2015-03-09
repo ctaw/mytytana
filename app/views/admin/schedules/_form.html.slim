@@ -4,27 +4,33 @@
       .form-group
         label Student
         =f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
-    .col-md-4
+  br
+  .row.scheduleRow.hidden
+    .col-md-3
       .form-group
         label Section
         =f.select "section", options_from_collection_for_select(@sections, "name","name", f.object.section), {:prompt => 'Select Section'}, { :class => 'form-control input-sm' }
-    .col-md-4
+    .col-md-2
       .form-group
         label Day
         =f.select(:day, options_for_select(@days,f.object.day),{},:class=>"form-control input-sm")
-  .row
-    .col-md-4
+    .col-md-3
       .form-group
         label Subject
-        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","name", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
-    .col-md-4
+        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","subject_code", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
+    .col-md-2
       .form-group
         label Time
         = f.text_field :time, :class=>"form-control input-sm"
-    .col-md-3
+    .col-md-2
       .form-group
         label Room
         = f.text_field :room, :class=>"form-control input-sm"
+    .row
+      a.btn.btn-default.btn-sm.addMore.pull-right href="#" Add
+
+
+        
 
   .row 
     .col-md-12
@@ -34,3 +40,23 @@
         = f.submit "Save", :class => "btn btn-success btn-sm"
         
 
+javascript:
+  $(document).ready(function() {
+    $('#schedule_student_number').change(function() {
+      $.ajax({
+        url: "#{update_all_admin_schedules_path}",
+        data: {
+          id : $('#schedule_student_number').val()
+        },
+        dataType: "script"
+      });
+    });
+  });
+
+javascript:
+  $(".addMore").click(function(){
+    $.ajax({
+        url: "#{add_more_admin_schedules_path}",
+        dataType: "script"
+      });
+  });

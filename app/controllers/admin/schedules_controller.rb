@@ -40,6 +40,15 @@ class Admin::SchedulesController < AdminController
     @schedule.destroy
     redirect_to action: :index
   end
+
+  def update_all
+    puts ">>>>>"
+    puts params[:id]
+  end
+
+  def add_more
+    
+  end
   
   private
 

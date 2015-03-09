@@ -47,12 +47,18 @@ class Admin::GradesController < AdminController
     @grade.destroy
     redirect_to action: :index
   end
+
+  def update_sections
+    # updates sections based on course selected
+    course = Course.where("course_code =?", params[:course_id])
+    @sections = course.sections.map{|s| [s.name, s.id]}.insert(0, "Select Section")
+  end
   
   private
 
   def look_ups
     @courses = Course.select("course_code,course_code").order("course_code ASC")
-    @sems = [['1st Semester','0'],['2nd Semester','1']]
+    @sems = [['1st Semester','0'],['2nd Semester','1'],['Summer','2']]
     @students = Student.select("student_number, first_name, last_name, course_code").where("course_code =?", params[:course_code]).order("last_name ASC")
     @subjects = Subject.select("subject_code, course_code").where("course_code =?", params[:course_code]).order("course_code ASC")
   end
