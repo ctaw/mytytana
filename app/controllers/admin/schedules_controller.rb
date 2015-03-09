@@ -4,7 +4,7 @@ class Admin::SchedulesController < AdminController
   before_action :look_ups, :only => [:edit, :new, :update]
 
   def index
-    @schedules = Schedule.select("id, student_number, day, time, subject_code, section, room").order("id ASC")
+    @schedules = Schedule.select("id, student_number, day, time, subject_code, section, room, course_code").order("id ASC")
     @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
@@ -67,7 +67,7 @@ class Admin::SchedulesController < AdminController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:student_number, :day, :time, :subject_code, :section, :room)    
+    params.require(:schedule).permit(:student_number, :day, :time, :subject_code, :section, :room, :course_code)    
   end
   
 end

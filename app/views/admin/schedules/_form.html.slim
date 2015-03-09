@@ -3,10 +3,14 @@
     .col-md-4
       .form-group
         label Student
-        - if params[:action] == "edit"
-          = f.text_field :student_number, :class=>"form-control input-sm"
-        - else
-          = f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
+        / - if params[:action] == "edit"
+        /   = f.text_field :student_number, :class=>"form-control input-sm"
+        / - else
+        = f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
+    .col-md-4
+      .form-group
+        label Course
+        = f.text_field :course_code, :class=>"form-control input-sm", :value=>"#{params[:course_code]}"
   br
   .row.scheduleRow
     .col-md-3
