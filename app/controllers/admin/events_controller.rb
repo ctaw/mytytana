@@ -47,7 +47,7 @@ class Admin::EventsController < AdminController
   end
 
   def look_ups
-    @sems = [['1st Semester','0'],['2nd Semester','1']]
+    @sems = [['1st Semester','0'],['2nd Semester','1'],['Summer','2']]
     @months = [['January','January'],['February','February'],['March','March'],['April','April'],['May','May'],['June','June'],['July','July'],['August','August'],['September','September'],['November','November'],['December','December']]
   end
 

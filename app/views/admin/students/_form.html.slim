@@ -12,7 +12,7 @@
     .col-md-3
       .form-group
         label Course
-        =f.select "course_code", options_from_collection_for_select(@courses, "course_code","name", f.object.course_code), {:prompt => 'Select Course'}, { :class => 'form-control input-sm' }
+        =f.select "course_code", options_from_collection_for_select(@courses, "course_code","course_code", f.object.course_code), {:prompt => 'Select Course'}, { :class => 'form-control input-sm' }
     .col-md-3
       .form-group
         label Curriculum_year
@@ -94,32 +94,6 @@
       .form-group
         label Guradian's Address
         = f.text_field :guardian_address, :class=>"form-control input-sm"
-  .row
-    .col-md-3
-      .form-group
-        label Grade School
-        = f.text_field :gs_name, :class=>"form-control input-sm"
-    .col-md-6
-      .form-group
-        label Grade School Location
-        = f.text_area :gs_location, :class=>"form-control input-sm"
-    .col-md-3
-      .form-group
-        label Year
-        = f.text_field :gs_year, :class=>"form-control input-sm"
-  .row
-    .col-md-3
-      .form-group
-        label High School
-        = f.text_field :hs_name, :class=>"form-control input-sm"
-    .col-md-6
-      .form-group
-        label High School Location
-        = f.text_area :hs_location, :class=>"form-control input-sm"
-    .col-md-3
-      .form-group
-        label Year
-        = f.text_field :hs_year, :class=>"form-control input-sm"
   .row 
     .col-md-12
       hr

@@ -3,15 +3,11 @@
     .col-md-3
       .form-group
         label Course
-        =f.select "course_code", options_from_collection_for_select(@courses, "course_code","name", f.object.course_code), {:prompt => 'Select Course'}, { :class => 'form-control input-sm' }
+        =f.select "course_code", options_from_collection_for_select(@courses, "course_code","course_code", f.object.course_code), {:prompt => 'Select Course'}, { :class => 'form-control input-sm' }
     .col-md-3
       .form-group
         label Subject Code
         = f.text_field :subject_code, :class=>"form-control input-sm required"
-    .col-md-3
-      .form-group
-        label Name
-        = f.text_field :name, :class=>"form-control input-sm required"
   .row
     .col-md-3
       .form-group

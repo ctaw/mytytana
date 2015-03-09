@@ -51,7 +51,7 @@ class Admin::WarningsController < AdminController
   end
 
   def warning_params
-    params.require(:warning).permit(:category, :title, :caption)    
+    params.require(:warning).permit(:category, :title, :caption, :student_number)    
   end
   
 end

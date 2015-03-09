@@ -5,7 +5,7 @@ class Admin::SchedulesController < AdminController
 
   def index
     @schedules = Schedule.select("id, student_number, day, time, subject_code, section, room").order("id ASC")
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
   def new
@@ -46,10 +46,10 @@ class Admin::SchedulesController < AdminController
   def look_ups
     @course_coude = params[:course_code]
     @students = Student.select("student_number, first_name, last_name, course_code").where("course_code =?", params[:course_code]).order("last_name ASC")
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
     @days = [['Monday','0'],['Tuesday','1'],['Wednesday','2'],['Thursday','3'],['Friday','4'],['Saturday','5']]
     @sections = Section.select("course_code, name").where("course_code =?", params[:course_code]).order("name ASC")
-    @subjects = Subject.select("subject_code, name, course_code").where("course_code =?", params[:course_code]).order("name ASC")
+    @subjects = Subject.select("subject_code, course_code").where("course_code =?", params[:course_code]).order("course_code ASC")
   end
 
   def set_schedule_id

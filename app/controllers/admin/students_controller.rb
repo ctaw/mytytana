@@ -50,13 +50,13 @@ class Admin::StudentsController < AdminController
     @gender = [['Male','1'],['Female','0']]
     @enrollment_status = [['Regular','Regular'],['Irregular','Irregular']]
     @civil_status = [['Single','Single'],['Married','Married'],['Widowed', 'Widowed'],['Divorce','Divorce']]
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
   def student_params
     params.require(:student).permit(:student_number, :access_code, :first_name, :middle_name, :last_name, :extension_name, :course_code, :curriculum_year,
       :enrollment_status, :gender, :birthday, :birthplace, :civil_status, :nationality, :religion, :address, :city, :contact_number,
-      :email, :guardian_name, :guardian_address, :guardian_contact_number, :gs_name, :gs_location, :gs_year, :hs_name, :hs_location, :hs_year)    
+      :email, :guardian_name, :guardian_address, :guardian_contact_number)    
   end
   
 end

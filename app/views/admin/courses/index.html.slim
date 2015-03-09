@@ -11,14 +11,14 @@ br
         tr
           th #
           th Code
-          th Name
+          th Description
           th 
       tbody
         - @courses.each do |course|
           tr
             td = course.id
             td = course.course_code
-            td = course.name      
+            td = course.description      
             td
               .btn-group.pull-right
                 a.btn.btn-default.btn-xs href="/admin/courses/#{course.id}/edit" Edit

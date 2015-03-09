@@ -5,7 +5,7 @@ class Admin::GradesController < AdminController
 
   def index
     @grades = Grade.select("id, student_number, subject_code, sem_grade, course_code").order("id ASC")
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
   def new
@@ -51,10 +51,10 @@ class Admin::GradesController < AdminController
   private
 
   def look_ups
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
     @sems = [['1st Semester','0'],['2nd Semester','1']]
     @students = Student.select("student_number, first_name, last_name, course_code").where("course_code =?", params[:course_code]).order("last_name ASC")
-    @subjects = Subject.select("subject_code, name, course_code").where("course_code =?", params[:course_code]).order("name ASC")
+    @subjects = Subject.select("subject_code, course_code").where("course_code =?", params[:course_code]).order("course_code ASC")
   end
 
   def set_grade_id

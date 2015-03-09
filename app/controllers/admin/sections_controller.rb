@@ -43,7 +43,7 @@ class Admin::SectionsController < AdminController
   private
 
   def look_ups
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
   def set_section_id

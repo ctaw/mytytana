@@ -4,7 +4,7 @@ class Admin::SubjectsController < AdminController
   before_action :set_subjec_id, :only=> [:show, :edit, :update, :destroy]
 
   def index
-    @subjects = Subject.select("id, subject_code, name, description, course_code").order("id ASC")
+    @subjects = Subject.select("id, subject_code, description, course_code").order("id ASC")
   end
 
   def new
@@ -47,11 +47,11 @@ class Admin::SubjectsController < AdminController
   end
 
   def look_ups
-    @courses = Course.select("course_code,name").order("name")
+    @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
   def subject_params
-    params.require(:subject).permit(:subject_code, :name, :description, :course_code, :unit_lec, :unit_lab)    
+    params.require(:subject).permit(:subject_code, :description, :course_code, :unit_lec, :unit_lab)    
   end
 
 end

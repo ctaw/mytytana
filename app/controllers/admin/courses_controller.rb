@@ -3,7 +3,7 @@ class Admin::CoursesController < AdminController
   before_action :set_course_id, :only=> [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.select("id, course_code, name").order("id ASC")
+    @courses = Course.select("id, course_code").order("id ASC")
   end
 
   def new
@@ -46,7 +46,7 @@ class Admin::CoursesController < AdminController
   end
 
   def course_params
-    params.require(:course).permit(:course_code, :name, :description)    
+    params.require(:course).permit(:course_code, :description)    
   end
   
 end
