@@ -14,13 +14,13 @@ class Admin::GradesController < AdminController
 
   def create
     @grade = Grade.new(grade_params)
-    @prelim = params[:grade][:prelim]
-    @midterm = params[:grade][:midterm]
-    @final = params[:grade][:final]
-    @grade_add = ((@prelim.to_i + @midterm.to_i + @final.to_i))
-    @sem_grade = @grade_add / 3
+    # @prelim = params[:grade][:prelim]
+    # @midterm = params[:grade][:midterm]
+    # @final = params[:grade][:final]
+    # @grade_add = ((@prelim.to_i + @midterm.to_i + @final.to_i))
+    # @sem_grade = @grade_add / 3
 
-    @grade.sem_grade = @sem_grade
+    # @grade.sem_grade = @sem_grade
     if @grade.save
       redirect_to "/admin/grades"
     else
