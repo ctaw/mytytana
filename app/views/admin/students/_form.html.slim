@@ -8,6 +8,14 @@
       .form-group
         label Access Code
         = f.text_field :access_code, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Year Level
+        = f.text_field :year_level, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Unit Allowed
+        = f.text_field :unit_allowed, :class=>"form-control input-sm"
   .row
     .col-md-3
       .form-group
@@ -98,6 +106,6 @@
     .col-md-12
       hr
       .btn-group.pull-right
-        a.btn.btn-default.btn-sm href="/admin/newsfeeds" Back
+        a.btn.btn-default.btn-sm href="/admin/students" Back
         = f.submit "Save", :class => "btn btn-success btn-sm"
         
