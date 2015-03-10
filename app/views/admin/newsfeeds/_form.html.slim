@@ -17,6 +17,12 @@
       .form-group
         label Description
         = f.text_area :description, :class=>"form-control input-sm required", :rows=>"10"
+  .row
+    .col-md-4
+      label Path URL
+      = f.text_area :path, :class=>"form-control input-sm"
+    .col-md-1
+      label OR
     .col-md-4
       label Path Image
       = f.text_field :path_name, :class=>"form-control input-sm"
