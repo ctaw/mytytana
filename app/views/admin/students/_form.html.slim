@@ -29,6 +29,10 @@
       .form-group
         label Enrollment Status
         =f.select(:enrollment_status, options_for_select(@enrollment_status,f.object.enrollment_status),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label Image Url
+        = f.text_area :path, :class=>"form-control input-sm"
   .row
     .col-md-3
       .form-group

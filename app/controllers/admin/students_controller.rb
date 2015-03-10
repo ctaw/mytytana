@@ -56,7 +56,7 @@ class Admin::StudentsController < AdminController
   def student_params
     params.require(:student).permit(:student_number, :access_code, :first_name, :middle_name, :last_name, :extension_name, :course_code, :curriculum_year,
       :enrollment_status, :gender, :birthday, :birthplace, :civil_status, :nationality, :religion, :address, :city, :contact_number,
-      :email, :guardian_name, :guardian_address, :guardian_contact_number, :unit_allowed, :year_level)    
+      :email, :guardian_name, :guardian_address, :guardian_contact_number, :unit_allowed, :year_level, :path)    
   end
   
 end
