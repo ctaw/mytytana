@@ -46,7 +46,7 @@ class Admin::NewsfeedsController < AdminController
   end
 
   def newsfeed_params
-    params.require(:newsfeed).permit(:title, :department, :event_date, :description, :path_name, :path)    
+    params.require(:newsfeed).permit(:title, :department, :event_date, :description, :path)    
   end
   
 end
