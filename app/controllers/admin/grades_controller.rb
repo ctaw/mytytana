@@ -13,6 +13,12 @@ class Admin::GradesController < AdminController
   end
 
   def create
+    puts ">>>>>>"
+    @subj = params[:grade][:subject_code]
+    
+
+    @subject = Subject.where("subject_code =?", @subj).first
+    
     @grade = Grade.new(grade_params)
     # @prelim = params[:grade][:prelim]
     # @midterm = params[:grade][:midterm]
@@ -21,6 +27,9 @@ class Admin::GradesController < AdminController
     # @sem_grade = @grade_add / 3
 
     # @grade.sem_grade = @sem_grade
+    @grade.description = @subject.description
+    @grade.unit_lec = @subject.unit_lec
+    @grade.unit_lab = @subject.unit_lab
     if @grade.save
       redirect_to "/admin/grades"
     else
@@ -35,6 +44,12 @@ class Admin::GradesController < AdminController
   end
 
   def update
+    @subj = params[:grade][:subject_code]
+    @subject = Subject.where("subject_code =?", @subj).first
+    @grade.description = @subject.description
+    @grade.unit_lec = @subject.unit_lec
+    @grade.unit_lab = @subject.unit_lab
+    
     @grade = Grade.find(params[:id])
     if @grade.update(grade_params)
       redirect_to "/admin/grades", notice: 'News was successfully updated.'
@@ -53,6 +68,12 @@ class Admin::GradesController < AdminController
     course = Course.where("course_code =?", params[:course_id])
     @sections = course.sections.map{|s| [s.name, s.id]}.insert(0, "Select Section")
   end
+
+  def subject_update
+    puts ">>>>>>>>>>>>"
+    @subject = Subject.where("subject_code =?", params[:subject_code])
+    puts @subject.inspect
+  end
   
   private
 
@@ -68,7 +89,7 @@ class Admin::GradesController < AdminController
   end
 
   def grade_params
-    params.require(:grade).permit(:student_number, :year, :sem, :subject_code, :prelim, :midterm, :final, :sem_grade, :course_code)    
+    params.require(:grade).permit(:student_number, :year, :sem, :subject_code, :prelim, :midterm, :final, :sem_grade, :course_code, :description, :unit_lec, :unit_lab)    
   end
   
 end

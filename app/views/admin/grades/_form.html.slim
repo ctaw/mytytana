@@ -72,3 +72,15 @@
         = f.submit "Save", :class => "btn btn-success btn-sm"
         
 
+javascript:
+  $(document).ready(function() {
+    $('#grade_subject_code').change(function() {
+      $.ajax({
+        url: "#{subject_update_admin_grades_path}",
+        data: {
+          subject_code : $('#grade_subject_code').val()
+        },
+        dataType: "script"
+      });
+    });
+  });

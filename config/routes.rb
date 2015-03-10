@@ -24,7 +24,11 @@ Rails.application.routes.draw do
         get "add_more"
       end
     end
-    resources :grades 
+    resources :grades do
+      collection do 
+        get "subject_update"
+      end
+    end
     resources :warnings
   end
 
