@@ -10,14 +10,12 @@ br
       thead
         tr
           th #
-          th Course
           th Name
           th 
       tbody
         - @sections.each do |section|
           tr
             td = section.id
-            td = section.course_code
             td = section.name       
             td
               .btn-group.pull-right

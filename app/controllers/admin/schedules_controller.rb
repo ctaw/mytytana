@@ -4,7 +4,7 @@ class Admin::SchedulesController < AdminController
   before_action :look_ups, :only => [:edit, :new, :update]
 
   def index
-    @schedules = Schedule.select("id, student_number, day, time, subject_code, section, room, course_code").order("id ASC")
+    @schedules = Schedule.select("id, day, time, subject_code, section, room, course_code").order("id ASC")
     @courses = Course.select("course_code,course_code").order("course_code ASC")
   end
 
@@ -55,8 +55,8 @@ class Admin::SchedulesController < AdminController
 
   def look_ups
     @course_coude = params[:course_code]
-    @students = Student.select("student_number, first_name, last_name, course_code").where("course_code =?", params[:course_code]).order("last_name ASC")
-    @courses = Course.select("course_code,course_code").order("course_code ASC")
+    #@students = Student.select("student_number, first_name, last_name, course_code").where("course_code =?", params[:course_code]).order("last_name ASC")
+    #@courses = Course.select("course_code,course_code").order("course_code ASC")
     @days = [['Monday','0'],['Tuesday','1'],['Wednesday','2'],['Thursday','3'],['Friday','4'],['Saturday','5']]
     @sections = Section.select("course_code, name").where("course_code =?", params[:course_code]).order("name ASC")
     @subjects = Subject.select("subject_code, course_code").where("course_code =?", params[:course_code]).order("course_code ASC")
@@ -67,7 +67,7 @@ class Admin::SchedulesController < AdminController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:student_number, :day, :time, :subject_code, :section, :room, :course_code)    
+    params.require(:schedule).permit(:day, :time, :subject_code, :section, :room, :course_code)    
   end
   
 end

@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310211601) do
+ActiveRecord::Schema.define(version: 20150316043530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: true do |t|
     t.string   "course_code"
-    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150310211601) do
     t.text     "description"
     t.integer  "unit_lec"
     t.integer  "unit_lab"
+    t.integer  "year_grade_id"
   end
 
   create_table "newsfeeds", force: true do |t|
@@ -70,13 +70,19 @@ ActiveRecord::Schema.define(version: 20150310211601) do
   end
 
   create_table "schedules", force: true do |t|
-    t.integer "student_number"
     t.integer "day"
     t.string  "time"
-    t.string  "subject_code"
-    t.string  "section"
+    t.string  "subject_id"
+    t.string  "section_id"
     t.string  "room"
-    t.string  "course_code"
+  end
+
+  create_table "section_schedules", force: true do |t|
+    t.string   "course_code"
+    t.integer  "section_id"
+    t.string   "student_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sections", force: true do |t|
@@ -84,18 +90,19 @@ ActiveRecord::Schema.define(version: 20150310211601) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   create_table "students", force: true do |t|
-    t.integer  "student_number"
+    t.string   "student_number"
     t.string   "access_code"
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
     t.string   "extension_name"
-    t.string   "course_code"
+    t.integer  "course_id"
     t.string   "curriculum_year"
-    t.integer  "enrollment_status"
+    t.string   "enrollment_status"
     t.integer  "gender"
     t.datetime "birthday"
     t.string   "birthplace"
@@ -109,12 +116,6 @@ ActiveRecord::Schema.define(version: 20150310211601) do
     t.string   "guardian_name"
     t.string   "guardian_address"
     t.string   "guardian_contact_number"
-    t.string   "gs_name"
-    t.text     "gs_location"
-    t.string   "gs_year"
-    t.string   "hs_name"
-    t.text     "hs_location"
-    t.string   "hs_year"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "unit_allowed"
@@ -124,7 +125,6 @@ ActiveRecord::Schema.define(version: 20150310211601) do
 
   create_table "subjects", force: true do |t|
     t.string   "subject_code"
-    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -156,6 +156,15 @@ ActiveRecord::Schema.define(version: 20150310211601) do
     t.string  "title"
     t.text    "caption"
     t.string  "student_number"
+  end
+
+  create_table "year_grades", force: true do |t|
+    t.string   "course_code"
+    t.integer  "section_id"
+    t.integer  "year"
+    t.integer  "sem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

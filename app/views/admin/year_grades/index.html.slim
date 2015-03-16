@@ -1,0 +1,26 @@
+.row
+  .col-lg-12
+    .header
+      a.btn.btn-primary.btn-sm.pull-right href="/admin/year_grades/new" Add Grades
+      h3 Grades
+br
+.row
+  .col-lg-12
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th #
+          th Course
+          th Year
+          th
+      tbody
+        - @year_grades.each do |year_grade|
+          tr
+            td = year_grade.id
+            td = year_grade.course_code
+            td = year_grade.year
+            td
+              .btn-group.pull-right
+                a.btn.btn-default.btn-xs href="/admin/year_grades/#{year_grade.id}/edit" Edit
+                a.btn.btn-info.btn-xs href="/admin/year_grades/#{year_grade.id}" Show
+                a.btn.btn-danger.btn-xs href="/admin/year_grades/#{year_grade.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete

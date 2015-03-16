@@ -8,6 +8,7 @@ class Admin::CoursesController < AdminController
 
   def new
     @course = Course.new
+    @course.sections.build
   end
 
   def create
@@ -46,7 +47,7 @@ class Admin::CoursesController < AdminController
   end
 
   def course_params
-    params.require(:course).permit(:course_code, :description)    
+    params.require(:course).permit(:course_code, :description, sections_attributes: [:id, :course_id, :course_code, :name])    
   end
   
 end

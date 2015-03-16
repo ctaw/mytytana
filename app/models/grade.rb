@@ -1,3 +1,3 @@
 class Grade < ActiveRecord::Base
-  has_many :subjects
+  belongs_to :year_grade
 end

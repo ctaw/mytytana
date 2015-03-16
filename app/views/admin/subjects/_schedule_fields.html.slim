@@ -1,0 +1,29 @@
+.nested-fields
+  .row.nested
+    .col-md-3
+      .form-group
+        label Day
+        =f.select(:day, options_for_select(@days,f.object.day),{},:class=>"form-control input-sm")
+    .col-md-3
+      .form-group
+        label 
+          | Time
+        = f.text_field :time, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label 
+          | Room
+        = f.text_field :room, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label 
+          | Section
+        =f.select "section_id", options_from_collection_for_select(@sections, "id","name", f.object.section_id), {:prompt => 'Select Section'}, { :class => 'form-control input-sm' }
+        
+        
+
+    .col-md-2
+      .form-group
+        label &nbsp;
+        br
+        = link_to_remove_association "X".html_safe, f, :type=>"button", :confirm => "Are you sure?", :class => "btn btn-danger remove-schedules push-left-20 "

@@ -1,0 +1,30 @@
+= form_for [:admin, @year_grade] do |f|
+  .form-horizontal
+    .form-group
+      .col-md-6
+        label.control-label Course
+        =f.select "course_code", options_from_collection_for_select(@courses, "course_code","course_code", f.object.course_code), {:prompt => 'Select Course'}, { :class => 'form-control input-sm' }
+      .col-md-6
+        label.control-label Section
+        =f.select "section_id", options_from_collection_for_select(@sections, "id","name", f.object.section_id), {:prompt => 'Select Section'}, { :class => 'form-control input-sm' }
+    .form-group
+      .col-md-6
+        label.control-label Year
+        = f.text_field :year, :class=>"form-control input-sm"
+      .col-md-6
+        label.control-label Sem
+        =f.select(:sem, options_for_select(@sems,f.object.sem),{},:class=>"form-control input-sm")
+    .form-group
+      .col-md-12
+        hr
+        = link_to_add_association '<i class="fa fa-plus"></i> Add Grades'.html_safe, f, :grades,
+        :class=>"btn btn-add pull-right", :data => {"association-insertion-method" => "append", "association-insertion-node" =>".grades"}
+    br
+    br
+    .grades
+      = f.fields_for :grades do |f|
+        = render 'grade_fields', :f=>f
+    .form-group
+      .btn-group.pull-right
+        a.btn.btn-default href="/admin/year_grades" Back
+        = f.submit "Save", :class => "btn btn-success"

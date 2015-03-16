@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       end
     end
     resources :warnings
+
+    resources :year_grades
   end
 
   namespace :api do

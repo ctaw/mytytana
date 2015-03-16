@@ -1,19 +1,24 @@
 = form_for [:admin, @course] do |f|
-  .row
-    .col-md-3
-      .form-group
-        label Code
+  .form-horizontal
+    .form-group
+      .col-md-12
+        label.control-label Code
         = f.text_field :course_code, :class=>"form-control input-sm"
-  .row
-    .col-md-5
-      .form-group
-        label Description
-        = f.text_area :description, :class=>"form-control input-sm required", :rows=>"10"
-  .row 
-    .col-md-12
-      hr
+    .form-group
+      .col-md-12
+        label.control-label Description
+        = f.text_area :description, :class=>"form-control input-sm required", :rows=>"3"
+    .form-group
+      .col-md-12
+        hr
+        = link_to_add_association '<i class="fa fa-plus"></i> Add Sections'.html_safe, f, :sections,
+        :class=>"btn btn-add pull-right", :data => {"association-insertion-method" => "append", "association-insertion-node" =>".sections"}
+    br
+    br
+    .sections
+      = f.fields_for :sections do |f|
+        = render 'section_fields', :f=>f
+    .form-group
       .btn-group.pull-right
-        a.btn.btn-default.btn-sm href="/admin/courses" Back
-        = f.submit "Save", :class => "btn btn-success btn-sm"
-        
-
+        a.btn.btn-default href="/admin/courses" Back
+        = f.submit "Save", :class => "btn btn-success"

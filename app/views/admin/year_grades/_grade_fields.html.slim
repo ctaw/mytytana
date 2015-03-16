@@ -1,0 +1,34 @@
+.nested-fields
+  .row.nested
+    .col-md-3
+      .form-group
+        label Student Number
+        = f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
+    .col-md-3
+      .form-group
+        label Subject
+        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","subject_code", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
+    .col-md-3
+      .form-group
+        label Prelim
+        = f.text_field :prelim, :class=>"form-control input-sm"
+  .row   
+    .col-md-3
+      .form-group
+        label Midterm
+        = f.text_field :midterm, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Finals
+        = f.text_field :final, :class=>"form-control input-sm"
+    .col-md-3
+      .form-group
+        label Sem Grade
+        = f.text_field :sem_grade, :class=>"form-control input-sm"
+          
+
+    .col-md-3
+      .form-group
+        label &nbsp;
+        br
+        = link_to_remove_association "X".html_safe, f, :type=>"button", :confirm => "Are you sure?", :class => "btn btn-danger remove-grades push-left-20 btn-sm "

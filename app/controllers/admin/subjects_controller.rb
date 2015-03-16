@@ -9,6 +9,7 @@ class Admin::SubjectsController < AdminController
 
   def new
     @subject = Subject.new
+    @subject.schedules.build
   end
 
   def create
@@ -48,10 +49,12 @@ class Admin::SubjectsController < AdminController
 
   def look_ups
     @courses = Course.select("course_code,course_code").order("course_code ASC")
+    @days = [['Monday','0'],['Tuesday','1'],['Wednesday','2'],['Thursday','3'],['Friday','4'],['Saturday','5']]
+    @sections = Section.select("id, name").where("course_id =?", 1).order("name ASC")
   end
 
   def subject_params
-    params.require(:subject).permit(:subject_code, :description, :course_code, :unit_lec, :unit_lab)    
+    params.require(:subject).permit(:subject_code, :description, :course_code, :unit_lec, :unit_lab, schedules_attributes: [:id, :subject_id, :section_id, :day, :time, :room])    
   end
 
 end

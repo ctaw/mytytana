@@ -8,7 +8,7 @@ class AddStudents < ActiveRecord::Migration
       t.string :middle_name
       t.string :last_name
       t.string :extension_name
-      t.string :course_code
+      t.integer :course_id
       t.string :curriculum_year
       t.string :enrollment_status
       t.integer :gender
@@ -47,11 +47,10 @@ class AddStudents < ActiveRecord::Migration
     end
 
     create_table :schedules do |t|
-      t.integer :student_number
       t.integer :day
       t.string :time
-      t.string :subject_code
-      t.string :section
+      t.string :subject_id
+      t.string :section_id
       t.string :room
     end
 

@@ -1,30 +1,33 @@
 = form_for [:admin, @subject] do |f|
-  .row
-    .col-md-3
-      .form-group
-        label Course
+  .form-horizontal
+    .form-group
+      .col-md-4
+        label.control-label Course
         =f.select "course_code", options_from_collection_for_select(@courses, "course_code","course_code", f.object.course_code), {:prompt => 'Select Course'}, { :class => 'form-control input-sm' }
-    .col-md-3
-      .form-group
-        label Subject Code
+      .col-md-4
+        label.control-label Subject Code
         = f.text_field :subject_code, :class=>"form-control input-sm required"
-  .row
-    .col-md-3
-      .form-group
-        label Description
-        = f.text_area :description, :class=>"form-control input-sm required"
-    .col-md-3
-      .form-group
-        label Unit Lecture
+      .col-md-4
+        label.control-label Description
+        = f.text_area :description, :class=>"form-control input-sm"
+    .form-group
+      .col-md-4
+        label.control-label Unit Lec
         = f.text_field :unit_lec, :class=>"form-control input-sm"
-    .col-md-3
-      .form-group
-        label Unit Laboratory
+      .col-md-4
+        label.control-label Unit Lab
         = f.text_field :unit_lab, :class=>"form-control input-sm"
-  .row 
-    .col-md-12
-      hr
+    .form-group
+      .col-md-12
+        hr
+        = link_to_add_association '<i class="fa fa-plus"></i> Add Sections'.html_safe, f, :schedules,
+        :class=>"btn btn-add pull-right", :data => {"association-insertion-method" => "append", "association-insertion-node" =>".sections"}
+    br
+    br
+    .schedules
+      = f.fields_for :schedules do |f|
+        = render 'schedule_fields', :f=>f
+    .form-group
       .btn-group.pull-right
-        = f.submit "Save", :class => "btn btn-success btn-sm"
-        
-
+        a.btn.btn-default href="/admin/subjects" Back
+        = f.submit "Save", :class => "btn btn-success"

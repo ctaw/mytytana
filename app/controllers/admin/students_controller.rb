@@ -4,7 +4,7 @@ class Admin::StudentsController < AdminController
   before_action :look_ups, :only => [:edit, :new, :update]
 
   def index
-    @students = Student.select("id, student_number, first_name, last_name, course_code, curriculum_year").order("last_name ASC")
+    @students = Student.select("id, student_number, first_name, last_name, curriculum_year").order("last_name ASC")
   end
 
   def new
@@ -50,11 +50,11 @@ class Admin::StudentsController < AdminController
     @gender = [['Male','1'],['Female','0']]
     @enrollment_status = [['Regular','Regular'],['Irregular','Irregular']]
     @civil_status = [['Single','Single'],['Married','Married'],['Widowed', 'Widowed'],['Divorce','Divorce']]
-    @courses = Course.select("course_code,course_code").order("course_code ASC")
+    @courses = Course.select("id,course_code").order("course_code ASC")
   end
 
   def student_params
-    params.require(:student).permit(:student_number, :access_code, :first_name, :middle_name, :last_name, :extension_name, :course_code, :curriculum_year,
+    params.require(:student).permit(:student_number, :access_code, :first_name, :middle_name, :last_name, :extension_name, :course_id, :curriculum_year,
       :enrollment_status, :gender, :birthday, :birthplace, :civil_status, :nationality, :religion, :address, :city, :contact_number,
       :email, :guardian_name, :guardian_address, :guardian_contact_number, :unit_allowed, :year_level, :path)    
   end
