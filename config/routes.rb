@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    resources :sections, :defaults => { :format => 'xml' }
     resources :subjects, :defaults => { :format => 'xml' }
     resources :newsfeeds, :defaults => { :format => 'xml' }
     resources :students, :defaults => { :format => 'xml' }
