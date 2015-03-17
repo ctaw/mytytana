@@ -9,12 +9,12 @@
         label 
           | Time
         = f.text_field :time, :class=>"form-control input-sm"
-    .col-md-3
+    .col-md-1
       .form-group
         label 
           | Room
         = f.text_field :room, :class=>"form-control input-sm"
-    .col-md-3
+    .col-md-2
       .form-group
         label 
           | Section
@@ -22,8 +22,8 @@
         
         
 
-    .col-md-2
+    .col-md-1
       .form-group
         label &nbsp;
         br
-        = link_to_remove_association "X".html_safe, f, :type=>"button", :confirm => "Are you sure?", :class => "btn btn-danger remove-schedules push-left-20 "
+        = link_to_remove_association "X".html_safe, f, :type=>"button", :confirm => "Are you sure?", :class => "btn btn-danger remove-schedules push-left-20 btn-sm "

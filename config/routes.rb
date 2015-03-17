@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         get "add_more"
       end
     end
+    resources :section_schedules
     resources :grades do
       collection do 
         get "subject_update"

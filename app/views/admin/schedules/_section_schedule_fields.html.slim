@@ -1,0 +1,14 @@
+.nested-fields
+  .row.nested
+    .col-md-5
+      .form-group
+        label 
+          | Student
+        = f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
+    
+
+    .col-md-2
+      .form-group
+        label &nbsp;
+        br
+        = link_to_remove_association "X".html_safe, f, :type=>"button", :confirm => "Are you sure?", :class => "btn btn-danger remove-sections push-left-20 "

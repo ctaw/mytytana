@@ -1,42 +1,28 @@
 .row
   .col-lg-12
     .header
-      a.btn.btn-primary.btn-sm.pull-right href="/admin/schedules/new" Add Schedule
       h3 Schedule
 br
-/ .row
-/   .col-lg-12
-/     .panel.panel-default
-/       .panel-body
-/         | Add Student's Schedules
-/         br
-        / br
-        / .col-lg-8
-        /   = select_tag "course_id", options_from_collection_for_select(@courses, "course_code", "course_code"), { :class => 'form-control input-sm', :prompt => "Select Course"}
-        /   br
-        /   a.btn.btn-primary.btn-sm.pull-right.addSchedule href="#" Add Schedule
-
 .row
   .col-lg-12
     table.table.table-striped.table-hover
       thead
         tr
           th #
-          th Section
+          th Day
+          th Time
           th Subject
-          th Room
-          / th 
+          th 
       tbody
         - @schedules.each do |schedule|
           tr
             td = schedule.id
-            td = schedule.section
-            td = schedule.subject_code
-            td = schedule.room       
+            td = schedule.get_day
+            td = schedule.time
+            td = schedule.subject.description       
             td
               .btn-group.pull-right
-                a.btn.btn-default.btn-xs href="/admin/schedules/#{schedule.id}/edit?course_code=#{schedule.course_code}" Edit
-                a.btn.btn-info.btn-xs href="/admin/schedules/#{schedule.id}" Show
+                a.btn.btn-default.btn-xs href="/admin/schedules/#{schedule.id}/edit" Assign Schedule
                 a.btn.btn-danger.btn-xs href="/admin/schedules/#{schedule.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
 
 / javascript:
