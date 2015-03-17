@@ -1,7 +1,7 @@
 .row
   .col-lg-12
     .header
-      a.btn.btn-primary.btn-sm.pull-right href="/admin/sections/new" Add Section
+      / a.btn.btn-primary.btn-sm.pull-right href="/admin/sections/new" Add Section
       h3 Sections
 br
 .row
@@ -19,6 +19,6 @@ br
             td = section.name       
             td
               .btn-group.pull-right
-                a.btn.btn-default.btn-xs href="/admin/sections/#{section.id}/edit?course_id=#{section.course_id}" Edit
-                a.btn.btn-info.btn-xs href="/admin/sections/#{section.id}" Show
+                a.btn.btn-info.btn-xs href="/admin/sections/#{section.id}/edit?course_id=#{section.course_id}" Assign Schedule
+                / a.btn.btn-info.btn-xs href="/admin/sections/#{section.id}" Show
                 a.btn.btn-danger.btn-xs href="/admin/sections/#{section.id}" data-confirm="Are you sure?" data-method="delete" rel="nofollow" Delete
