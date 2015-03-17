@@ -6,7 +6,14 @@ class Api::StudentsController < ApplicationController
   end
 
   def show
-    respond_with(@students = Student.where("student_number =?", params[:id]).order("last_name ASC")) 
+    respond_with(@students = Student.select("*").joins(:course).where(:students => {:student_number => params[:id]}))
   end
+
   
-end
+  
+end 
+
+
+# SELECT student_number FROM students T1 INNER JOIN courses T2 ON T1.course_id = T2.id;
+
+# Course.preload(:students)
