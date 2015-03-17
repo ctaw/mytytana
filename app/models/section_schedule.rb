@@ -1,3 +1,4 @@
 class SectionSchedule < ActiveRecord::Base
-  belongs_to :schedules
+  belongs_to :schedule
+  belongs_to :section
 end

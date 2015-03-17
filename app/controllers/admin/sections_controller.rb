@@ -4,7 +4,7 @@ class Admin::SectionsController < AdminController
   before_action :look_ups, :only => [:edit, :new, :update]
 
   def index
-    @sections = Section.select("id, course_code, name").order("id ASC")
+    @sections = Section.select("id, course_id, name").order("id ASC")
   end
 
   def new
@@ -44,6 +44,7 @@ class Admin::SectionsController < AdminController
 
   def look_ups
     @courses = Course.select("course_code,course_code").order("course_code ASC")
+    @students = Student.select("student_number, first_name, last_name, course_id").where("course_id =?", params[:course_id]).order("last_name ASC")
   end
 
   def set_section_id
@@ -51,7 +52,7 @@ class Admin::SectionsController < AdminController
   end
 
   def section_params
-    params.require(:section).permit(:name, :course_id)    
+    params.require(:section).permit(:name, :course_id, section_schedules_attributes: [:id, :section_id, :student_number])    
   end
   
 end
