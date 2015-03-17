@@ -51,7 +51,7 @@ class Admin::SectionsController < AdminController
   end
 
   def section_params
-    params.require(:section).permit(:course_code, :name)    
+    params.require(:section).permit(:name, :course_id)    
   end
   
 end
