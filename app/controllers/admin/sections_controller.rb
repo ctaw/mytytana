@@ -28,6 +28,7 @@ class Admin::SectionsController < AdminController
 
   def update
     @section = Section.find(params[:id])
+    
     if @section.update(section_params)
       redirect_to "/admin/sections", notice: 'News was successfully updated.'
     else

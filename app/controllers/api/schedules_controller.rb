@@ -6,7 +6,7 @@ class Api::SchedulesController < ApplicationController
   end
 
   def show
-    respond_with(@schedules = Schedule.where("student_number =?", params[:id])) 
+    respond_with(@schedules = Schedule.where("section_id =?", params[:id])) 
   end
   
 end
