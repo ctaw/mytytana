@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     resources :directories, :defaults => { :format => 'xml' }
     resources :events, :defaults => { :format => 'xml' }
     resources :schedules, :defaults => { :format => 'xml' }
+    resources :section_schedules, :defaults => { :format => 'xml' }
     resources :grades, :defaults => { :format => 'xml' }
     resources :warnings, :defaults => { :format => 'xml' }
   end
