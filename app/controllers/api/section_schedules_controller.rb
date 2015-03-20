@@ -6,7 +6,7 @@ class Api::SectionSchedulesController < ApplicationController
   end
 
   def show
-    respond_with(@section_schedules = SectionSchedule.select("*").joins(:section).where(:section_schedules => {:student_number => params[:id]}))
+    respond_with(@section_schedules = SectionSchedule.select("*").joins(:schedule).where(:section_schedules => {:student_number => params[:id]}))
   end
   
 end
