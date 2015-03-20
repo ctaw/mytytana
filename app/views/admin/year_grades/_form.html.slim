@@ -8,12 +8,15 @@
         label.control-label Section
         =f.select "section_id", options_from_collection_for_select(@sections, "id","name", f.object.section_id), {:prompt => 'Select Section'}, { :class => 'form-control input-sm' }
     .form-group
-      .col-md-6
+      .col-md-4
         label.control-label Year
         = f.text_field :year, :class=>"form-control input-sm"
-      .col-md-6
+      .col-md-4
         label.control-label Sem
         =f.select(:sem, options_for_select(@sems,f.object.sem),{},:class=>"form-control input-sm")
+      .col-md-4
+        label.control-label Subject
+        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","subject_code", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
     .form-group
       .col-md-12
         hr

@@ -6,10 +6,6 @@
         = f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
     .col-md-3
       .form-group
-        label Subject
-        =f.select "subject_code", options_from_collection_for_select(@subjects, "subject_code","subject_code", f.object.subject_code), {:prompt => 'Select Subject'}, { :class => 'form-control input-sm' }
-    .col-md-3
-      .form-group
         label Prelim
         = f.text_field :prelim, :class=>"form-control input-sm"
   .row   

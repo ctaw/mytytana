@@ -5,6 +5,7 @@ class CreateYearGrades < ActiveRecord::Migration
       t.integer :section_id
       t.integer :year
       t.integer :sem
+      t.string :subject_code
       t.timestamps
     end
   end

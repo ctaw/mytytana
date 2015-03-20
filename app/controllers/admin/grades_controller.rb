@@ -22,11 +22,14 @@ class Admin::GradesController < AdminController
     @grade.unit_lec = @subject.unit_lec
     @grade.unit_lab = @subject.unit_lab
 
-    if @grade.save
-      redirect_to "/admin/grades"
-    else
-      render :new
-    end
+    puts ">>>>>>>>>"
+    puts @subj
+
+    # if @grade.save
+    #   redirect_to "/admin/grades"
+    # else
+    #   render :new
+    # end
   end
 
   def show

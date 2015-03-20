@@ -12,7 +12,17 @@ class Admin::YearGradesController < AdminController
   end
 
   def create
+
+    puts ">>>>>>>>>>"
+    @subj = params[:year_grade][:subject_code]
+    puts @subj
+
+    @subject = Subject.where("subject_code =?", @subj).first
+
     @year_grade = YearGrade.new(year_grade_params)
+    @year_grade.description = @subject.description
+    @year_grade.unit_lec = @subject.unit_lec
+    @year_grade.unit_lab = @subject.unit_lab
     if @year_grade.save
       redirect_to "/admin/year_grades"
     else
@@ -55,7 +65,7 @@ class Admin::YearGradesController < AdminController
   end
 
   def year_grade_params
-    params.require(:year_grade).permit(:course_code, :section_id, :year, :sem, grades_attributes: [:id, :year_grade_id, :student_number, :subject_code, :prelim, :midterm, :final, :sem_grade])    
+    params.require(:year_grade).permit(:course_code, :section_id, :year, :sem, :subject_code,:description, :unit_lec, :unit_lab, grades_attributes: [:id, :year_grade_id, :student_number, :prelim, :midterm, :final, :sem_grade])    
   end
   
 end
