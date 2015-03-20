@@ -1,3 +1,7 @@
+= @subjects = Subject.select("*").joins(:schedules).where(:schedules =>{:section_id => params[:id]}).first
+= @subjects.subject_code
+
+= @section.name
 = form_for [:admin, @section] do |f|
   .form-horizontal
     .form-group

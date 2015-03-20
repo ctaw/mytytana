@@ -1,11 +1,20 @@
 .nested-fields
   .row.nested
-    .col-md-5
+    .col-md-3
       .form-group
         label 
           | Student
         = f.select "student_number", options_from_collection_for_select(@students, "student_number","full_name", f.object.student_number), {:prompt => 'Select Student'}, { :class => 'form-control input-sm' }
-    
+    .col-md-3
+      .form-group
+        label
+          | Section
+        = f.text_field :section_name, :class=>"form-control input-sm", :value=>"#{@section.name}"
+    .col-md-3
+      .form-group
+        label
+          | Section
+        = f.text_field :subject_code, :class=>"form-control input-sm", :value=>@subjects.subject_code
 
     .col-md-2
       .form-group

@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20150317170520) do
   create_table "schedules", force: true do |t|
     t.integer "day"
     t.string  "time"
-    t.string  "subject_id"
-    t.string  "section_id"
+    t.integer "subject_id"
+    t.integer "section_id"
     t.string  "room"
   end
 
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 20150317170520) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "schedule_id"
+    t.string   "subject_code"
+    t.string   "section_name"
   end
 
   create_table "sections", force: true do |t|

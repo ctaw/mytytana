@@ -28,7 +28,15 @@ class Admin::SectionsController < AdminController
 
   def update
     @section = Section.find(params[:id])
-    
+
+    # puts ">>>>>>>>"
+    # @sname = @section.name
+    # @scode = @section.course_code
+
+    # @subject = Subject.select("subject_code").joins(:schedules).where(:schedules =>{:section_id => params[:id]})
+
+
+
     if @section.update(section_params)
       redirect_to "/admin/sections", notice: 'News was successfully updated.'
     else
@@ -53,7 +61,7 @@ class Admin::SectionsController < AdminController
   end
 
   def section_params
-    params.require(:section).permit(:name, :course_id, section_schedules_attributes: [:id, :section_id, :student_number])    
+    params.require(:section).permit(:name, :course_id, section_schedules_attributes: [:id, :section_id, :student_number, :subject_code, :section_name])    
   end
   
 end

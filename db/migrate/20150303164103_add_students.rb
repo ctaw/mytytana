@@ -49,8 +49,8 @@ class AddStudents < ActiveRecord::Migration
     create_table :schedules do |t|
       t.integer :day
       t.string :time
-      t.string :subject_id
-      t.string :section_id
+      t.integer :subject_id
+      t.integer :section_id
       t.string :room
     end
 
